@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2026 The Stdlib Authors.
@@ -16,18 +16,11 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
 
-// MODULES //
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@esm/index.d.ts"/>
 
-var numelDimension = require( '@stdlib/ndarray-base-numel-dimension' );
-var getStride = require( '@stdlib/ndarray-base-stride' );
-var getOffset = require( '@stdlib/ndarray-base-offset' );
-var getData = require( '@stdlib/ndarray-base-data-buffer' );
-var strided = require( '@stdlib/blas-ext-base-gnone' ).ndarray;
-
-
-// MAIN //
+import { typedndarray } from '@stdlib/types/ndarray';
 
 /**
 * Tests whether every element in a one-dimensional ndarray is falsy.
@@ -40,8 +33,8 @@ var strided = require( '@stdlib/blas-ext-base-gnone' ).ndarray;
 *
 * -   The function explicitly treats `NaN` values as falsy.
 *
-* @param {ArrayLikeObject<Object>} arrays - array-like object containing ndarrays
-* @returns {boolean} boolean indicating whether all elements are falsy
+* @param arrays - array-like object containing ndarrays
+* @returns boolean indicating whether all elements are falsy
 *
 * @example
 * var vector = require( '@stdlib/ndarray-vector-ctor' );
@@ -51,12 +44,9 @@ var strided = require( '@stdlib/blas-ext-base-gnone' ).ndarray;
 * var v = gnone( [ x ] );
 * // returns false
 */
-function gnone( arrays ) {
-	var x = arrays[ 0 ];
-	return strided( numelDimension( x, 0 ), getData( x ), getStride( x, 0 ), getOffset( x ) ); // eslint-disable-line max-len
-}
+declare function gnone( arrays: [ typedndarray<unknown> ] ): boolean;
 
 
 // EXPORTS //
 
-module.exports = gnone;
+export = gnone;
